@@ -15,15 +15,53 @@ public class OneOfEachStats {
 		// Initailizes a random numbers generator with the given seed value
         Random generator = new Random(seed);  
 		
-		//// In the previous version of this program, you used a statement like:
-		//// double rnd = Math.random();
-		//// Where "rnd" is the variable that stores the generated random value.
-		//// In this version of the program, replace this statement with:
-		//// double rnd = generator.nextDouble();
-		//// This statement will generate a random value in the range [0,1),
-		//// just like you had in the previous version, except that the 
-		//// randomization will be based on the given seed.
-		//// This is the only change that you have to do in the program.
+		int count = 0;
+			int twokids = 0;
+			int threekids = 0;
+			int fourplus = 0;
+            boolean boy = false;
+		    boolean girl = false;
+		    double avg = 0.0;
+		for (int i =1; i <= T; i++ ) {
+			
+	      while (!(boy && girl)) {		
+		    double generate = Math.random();
+		if (generate >= 0.5) {
+			boy = true;	
+		} else  {
+			girl = true;
+                      
+        }
+        count += 1;
+		}
+		avg = avg + count;
+		if (count == 2) {
+			twokids += 1;
+		  } else if (count == 3 ) {
+			  threekids += 1;
+		      } else if (count >= 4) {
+			     fourplus += 1;
+		    }
+		    boy = false;
+		    girl = false;
+		    count = 0;
+		}
+		int mode = Math.max(fourplus, Math.max (threekids, twokids));
+		if (mode == fourplus){
+			mode = 4;
+		} else if (mode == threekids) {
+			mode = 3;
+		} else {
+			mode = 2;
+		} 
+		
+		avg =  (avg / T);
+		System.out.println("Average: " + avg + " children to get at least one of each gender.");
+		System.out.println("Number of families with 2 children: " + twokids );
+		System.out.println("Number of families with 3 children: " + threekids );
+		System.out.println("Number of families with 4 or more children: " + fourplus );
+		System.out.println("The most common number of children is " + mode + ".");
+	}
 		    
 	}
-}
+
