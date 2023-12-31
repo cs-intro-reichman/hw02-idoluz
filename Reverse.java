@@ -10,6 +10,9 @@ public class Reverse {
 		 	reverse = reverse + word.charAt(i);
 		 }
 		 int middle = (word.length() / 2);
+		 if (word.length() % 2 == 0){
+		 	middle = (word.length()-1) / 2;
+		 }
 		 System.out.println(reverse + "\n" + "The middle character is " + word.charAt(middle));
 	}
 }
