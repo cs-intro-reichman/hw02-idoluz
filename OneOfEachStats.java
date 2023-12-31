@@ -15,7 +15,7 @@ public class OneOfEachStats {
 		// Initailizes a random numbers generator with the given seed value
         Random generator = new Random(seed);  
 		
-		int count = 0;
+		    int count = 0;
 			int twokids = 0;
 			int threekids = 0;
 			int fourplus = 0;
@@ -25,8 +25,8 @@ public class OneOfEachStats {
 		for (int i =1; i <= T; i++ ) {
 			
 	      while (!(boy && girl)) {		
-		    double generate = Math.random();
-		if (generate >= 0.5) {
+		    double rnd = generator.nextDouble();
+		if (rnd >= 0.5) {
 			boy = true;	
 		} else  {
 			girl = true;
